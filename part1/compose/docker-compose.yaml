@@ -1,0 +1,19 @@
+name: data-infra-part1
+
+services:
+  timescale:
+    container_name: timescale
+    image:  timescale/timescaledb:latest-pg15
+    environment:
+      POSTGRES_DB: timescale
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../.storage/timescale:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "timescale", "-U", "user" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
