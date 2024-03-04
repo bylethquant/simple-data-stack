@@ -42,11 +42,6 @@ flexibility in mind. It can accommodate pipelines for processing log files or an
 In what follows, I aim to keep everything straightforward so that anyone can adopt elements of this data stack
  for their own data infrastructure. This repository provides the source code for each post.
 
-## Structure
-
-1. Introduction to Docker, Docker Compose, and Setting Up Timescale
-2. Setting up Apache Airflow and Creating Pipelines
-
 ## Tools
 
 * Docker Desktop 4.27.2
