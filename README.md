@@ -8,15 +8,15 @@ below.
 ## Introduction
 
 The series is inspired by recent discussions in my crypto quant circle about leveraging modern applications like
-[Grafana](https://grafana.com) for a budget-friendly solo data infrastructure. But what is the simplest way to gain
+[Grafana](https://grafana.com) for a simple data infrastructure. But what is the easiest way to gain
 exposure and
-utilize these applications? Today, [Docker](https://www.docker.com) stands out as an excellent tool for experimenting
+utilize these tools? Today, [Docker](https://www.docker.com) stands out as an excellent tool for experimenting
 with these applications. For
 instance, [Grafana](https://grafana.com) can be run locally with just a few lines of code. This series aims to equip
 everyone with the
 knowledge necessary to deploy tools such as
 [Grafana](https://grafana.com), [Timescale](https://www.timescale.com), [Apache Airflow](https://airflow.apache.org),
-and [Traefik](https://traefik.io/traefik) for local development.
+and [Traefik](https://traefik.io/traefik).
 
 ## Overview
 
@@ -31,7 +31,9 @@ illustrated in the figure below:
 As a practical example, I will develop Extract-Transform-Load (ETL) pipelines to process 1-minute candlestick data,
 including spot and future price data as well as funding rates from Binance. *Data Storage* will be handled by
 Timescale. *Visualization* will be provided by Grafana, with Docker as the main hosting tool and Traefik serving as
-the reverse proxy. Following local development, I will showcase how to deploy this infrastructure on a cloud service
+the reverse proxy. 
+
+Following local development, I will showcase how to deploy this infrastructure on a cloud service
 provider. A domain will be registered through [Porkbun](https://porkbun.com/), with DNS records set up to enable access
 to Docker containers via
 subdomains such as airflow.mydomain.com and grafana.mydomain.com.
@@ -40,7 +42,14 @@ Additionally, while Binance data ingestion pipelines serve as the primary exampl
 flexibility in mind. It can accommodate pipelines for processing log files or any other data sources.
 
 In what follows, I aim to keep everything straightforward so that anyone can adopt elements of this data stack
- for their own data infrastructure. This repository provides the source code for each post.
+for their own data infrastructure.
+
+## Who Should Read This Series
+
+This series is for those who are looking to take their first steps in developing their own data infrastructure. It is for individuals who want to:
+* Host these tools locally via Docker to experiment with them. 
+* Deploy them to the cloud.
+
 
 ## Tools
 
@@ -50,3 +59,5 @@ In what follows, I aim to keep everything straightforward so that anyone can ado
 * Grafana 10.0.2
 * Timescale pg15
 * Traefik 3.0
+
+Please subscribe to [hiddenorder.io](https://hiddenorder.io/) and [follow me on X](https://twitter.com/bylethquant) for updates!
