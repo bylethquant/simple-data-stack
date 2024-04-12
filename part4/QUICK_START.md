@@ -10,3 +10,5 @@ initialization of Timescale:
    - Execute the Airflow DAG `0_timescale_create_tables` to create hypertables. 
 6. Start the Binance data pipelines. 
 7. Access Grafana web interface through a browser at ``localhost:3000``.
+
+A detailed guide can be found here: TBA.
