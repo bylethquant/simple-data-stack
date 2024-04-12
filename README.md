@@ -1,9 +1,13 @@
 # A Practical Guide to a Simple Data Stack
 
 This GitHub repository hosts the source code for my infrastructure
-series, [A Practical Guide to a Simple Data Stack](https://hiddenorder.io). It expands
+series, [A Practical Guide to a Simple Data Stack](https://hiddenorder.io) (SDS). It expands
 upon the Substack posts and provides a step-by-step guide to building the data infrastructure depicted in the figure
 below.
+
+**Articles**
+* [SDS #0: A Practical Guide to a Simple Data Stack](https://hiddenorder.io/p/sds-0-a-practical-guide-to-a-simple)
+* [SDS #1: Docker, Docker Compose and Setting Up Timescale](https://hiddenorder.io/p/sds-1-docker-docker-compose-and-setting)
 
 ## Introduction
 
