@@ -2,7 +2,7 @@
 Follow these steps to set up the application using Docker Compose:
 1. Change directory to `./part2/compose/pipecraft/scripts/` and execute the Python script `gen_fernet_key.py`.
 2. Change directory to `./part2/compose/` and create a `.env` file (see `.env.template`):
-   * Set the environment variable `AIRFLOW_FERNET_KEY` with the fernet key created in step 1.
+   * Set the environment variable `AIRFLOW_FERNET_KEY` to the fernet key created in step 1.
 3. Open your terminal.
 4. Change to the directory ``./part2/compose`` with the ``docker-compose.yaml`` file.
 5. Initialize Apache Airflow by executing ``docker compose up airflow-init``.
