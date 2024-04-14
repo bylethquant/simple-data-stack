@@ -1,0 +1,2 @@
+cryptography~=42.0.5
+apache-airflow~=2.8.1
