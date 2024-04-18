@@ -159,6 +159,7 @@ storage/
 *.secret
 # airflow
 part2/pipecraft/logs/
+part3/pipecraft/logs/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
