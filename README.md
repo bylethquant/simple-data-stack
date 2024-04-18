@@ -8,6 +8,8 @@ below.
 **Articles**
 * [SDS #0: A Practical Guide to a Simple Data Stack](https://hiddenorder.io/p/sds-0-a-practical-guide-to-a-simple)
 * [SDS #1: Docker, Docker Compose and Setting Up Timescale](https://hiddenorder.io/p/sds-1-docker-docker-compose-and-setting)
+* [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://hiddenorder.io/p/sds-2-setting-up-apache-airflow-and)
+* [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://hiddenorder.io/p/sds-3-robust-crypto-data-pipelines)
 
 ## Introduction
 
