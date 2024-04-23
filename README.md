@@ -10,6 +10,7 @@ below.
 * [SDS #1: Docker, Docker Compose and Setting Up Timescale](https://hiddenorder.io/p/sds-1-docker-docker-compose-and-setting)
 * [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://hiddenorder.io/p/sds-2-setting-up-apache-airflow-and)
 * [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://hiddenorder.io/p/sds-3-robust-crypto-data-pipelines)
+* [SDS #4: Crypto Market Data Dashboard with Grafana](https://hiddenorder.io/p/sds-4-crypto-market-data-dashboard)
 
 ## Introduction
 
