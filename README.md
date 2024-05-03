@@ -12,7 +12,7 @@ below.
 * [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://hiddenorder.io/p/sds-3-robust-crypto-data-pipelines)
 * [SDS #4: Crypto Market Data Dashboard with Grafana](https://hiddenorder.io/p/sds-4-crypto-market-data-dashboard)
 * [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-1-how-to-set-up-the-data-stack)
-* [SDS #5-2 How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-2-how-to-set-up-the-data-stack)
+* [SDS #5-2: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-2-how-to-set-up-the-data-stack)
 
 ## Introduction
 
