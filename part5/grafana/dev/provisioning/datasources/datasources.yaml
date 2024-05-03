@@ -1,0 +1,18 @@
+apiVersion: 1
+
+datasources:
+  - name: timescale
+    type: postgres
+    url: "host.docker.internal:${TIMESCALE_PORT}"
+    database: "${TIMESCALE_DATABASE_NAME}"
+    user: "${TIMESCALE_READONLY_USERNAME}"
+    secureJsonData:
+      password: "${TIMESCALE_READONLY_PASSWORD}"
+    jsonData:
+      postgresVersion: 1500
+      sslmode: "disable"
+      timescaledb: true
+      tlsAuth: false
+      tlsAuthWithCACert: false
+      tlsConfigurationMethod: "file-path"
+      tlsSkipVerify: true

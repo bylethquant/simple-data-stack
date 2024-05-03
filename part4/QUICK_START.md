@@ -2,7 +2,7 @@
 
 Follow these steps to set up the application using Docker Compose:
 
-1. Change directory to `./part4/compose/pipecraft/scripts/` and execute the Python script `gen_fernet_key.py`.
+1. Change directory to `./part4/compose/pipecraft/scripts/` and execute the Python script `gen_fernet_key.py`. Copy key.
 2. Change directory to `./part4/compose/` and create a `.env` file (see `.env.template`):
     * Set the environment variable `AIRFLOW_FERNET_KEY` with the fernet key created in step 1.
     * Set the environment variable `BINANCE_API_KEY` with

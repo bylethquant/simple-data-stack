@@ -155,12 +155,13 @@ cython_debug/
 # docker
 .storage/
 storage/
-*.env
 *.secret
+.env.prod
 # airflow
 part2/pipecraft/logs/
 part3/pipecraft/logs/
 part4/pipecraft/logs/
+part5/pipecraft/logs/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

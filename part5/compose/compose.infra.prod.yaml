@@ -1,0 +1,57 @@
+name: data-infra-prod
+
+services:
+
+  airflow-webserver:
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://localhost:8080/health" ]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.airflow-webserver.rule=Host(`airflow.${DOMAIN_NAME}`)"
+      - "traefik.http.routers.airflow-webserver.entrypoints=websecure"
+      - "traefik.http.routers.airflow-webserver.tls.certresolver=leresolver"
+
+  airflow-scheduler:
+    restart: unless-stopped
+
+  airflow-postgres:
+    ports:
+      - "${AIRFLOW_DATABASE_PORT:-5432}:5432"
+    volumes:
+      - ../storage/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${AIRFLOW_DATABASE_NAME:-airflow}", "-U", "${AIRFLOW_DATABASE_USERNAME_admin}" ]
+      interval: 60s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  airflow-init:
+    entrypoint: /opt/airflow/scripts/entry_init.sh
+
+  timescale:
+    ports:
+      - "${TIMESCALE_PORT:-5433}:5432"
+    volumes:
+      - ../storage/timescale:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${TIMESCALE_DATABASE_NAME:-timescale}", "-U", "${TIMESCALE_ADMIN_USERNAME:-admin}" ]
+      interval: 60s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  grafana:
+    env_file:
+      - .env.prod
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.${DOMAIN_NAME}`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.grafana.tls.certresolver=leresolver"
