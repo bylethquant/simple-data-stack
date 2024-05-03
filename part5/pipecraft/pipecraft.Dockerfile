@@ -17,7 +17,7 @@ COPY ./config /opt/airflow/config
 COPY ./plugins /opt/airflow/plugins
 COPY ./scripts /opt/airflow/scripts
 
-# connect to docker image to your repo (not required)
+# connect docker image to your repo (not required)
 # LABEL org.opencontainers.image.source https://github.com/bylethquant/substack-data-infra
 
 # expose port 8080 for the Airflow UI

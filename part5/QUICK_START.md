@@ -47,4 +47,6 @@ Follow these steps to set up the application using Docker Compose:
 10. Access Grafana web interface through a browser at ``grafana.localhost``.
 
 A detailed guide can be found
-here: [TBA](https://hiddenorder.io/p/sds-4-crypto-market-data-dashboard).
+here:
+* [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-1-how-to-set-up-the-data-stack)
+* [SDS #5-2 How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-2-how-to-set-up-the-data-stack)

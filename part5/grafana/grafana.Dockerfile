@@ -11,7 +11,7 @@ COPY prod/provisioning /etc/grafana/provisioning
 # expose port 3000 for Grafana UI
 EXPOSE 3000
 
-# connect to docker image to your repo (not required)
+# connect docker image to your repo (not required)
 # LABEL org.opencontainers.image.source https://github.com/bylethquant/substack-data-infra
 
 # start grafana
