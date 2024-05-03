@@ -1,0 +1,79 @@
+name: data-infra-dev
+
+x-airflow-common-dev:
+  &airflow-common-dev
+  image: apache/airflow:2.8.1-python3.11
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__LOAD_DEFAULT_CONNECTIONS: "false"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__LOGGING__LOGGING_LEVEL: "DEBUG"
+  volumes:
+    - ${AIRFLOW_PROJ_DIR:-../pipecraft}/dags:/opt/airflow/dags
+    - ${AIRFLOW_PROJ_DIR:-../pipecraft}/config:/opt/airflow/config
+    - ${AIRFLOW_PROJ_DIR:-../pipecraft}/plugins:/opt/airflow/plugins
+
+services:
+
+  airflow-webserver:
+    <<: *airflow-common-dev
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://localhost:8080/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.airflow-webserver.rule=Host(`airflow.${DOMAIN_NAME:-localhost}`)"
+
+  airflow-scheduler:
+    <<: *airflow-common-dev
+    restart: unless-stopped
+
+  airflow-postgres:
+    ports:
+      - "${AIRFLOW_DATABASE_PORT:-5432}:5432"
+    volumes:
+      - ../.storage/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${AIRFLOW_DATABASE_NAME:-airflow}", "-U", "${AIRFLOW_DATABASE_USERNAME:-admin}" ]
+      interval: 5s
+      retries: 2
+      start_period: 3s
+    restart: unless-stopped
+
+  airflow-init:
+    <<: *airflow-common-dev
+    entrypoint: /opt/airflow/scripts/entry_init.sh
+    volumes:
+      - ${AIRFLOW_PROJ_DIR:-../pipecraft}/scripts:/opt/airflow/scripts
+
+  timescale:
+    ports:
+      - "${TIMESCALE_PORT:-5433}:5432"
+    volumes:
+      - ../.storage/timescale:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${TIMESCALE_DATABASE_NAME:-timescale}", "-U", "${TIMESCALE_ADMIN_USERNAME:-admin}" ]
+      interval: 5s
+      retries: 2
+      start_period: 3s
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:10.0.2
+    environment:
+      GF_DATABASE_SSL_MODE: disable
+      GF_ENABLE_GZIP: true
+    env_file:
+      - .env
+    volumes:
+      - ../grafana/dev/provisioning:/etc/grafana/provisioning
+      - ../grafana/dev/dashboards:/var/lib/grafana/dashboards
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.${DOMAIN_NAME:-localhost}`)"

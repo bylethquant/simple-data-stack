@@ -1,0 +1,77 @@
+x-airflow-common:
+  &airflow-common
+  image: ghcr.io/bylethquant/sds-pipecraft:latest
+  environment:
+    &airflow-common-env
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://${AIRFLOW_DATABASE_USERNAME:-admin}:${AIRFLOW_DATABASE_PASSWORD:-password}@airflow-postgres:${AIRFLOW_DATABASE_PORT:-5432}/${AIRFLOW_DATABASE_NAME:-airflow}"
+    AIRFLOW__CORE__FERNET_KEY: "${AIRFLOW_FERNET_KEY}"
+    _AIRFLOW_WWW_USER_USERNAME: "${AIRFLOW_WWW_USER_USERNAME:-admin}"
+    _AIRFLOW_WWW_USER_PASSWORD: "${AIRFLOW_WWW_USER_PASSWORD:-password}"
+    _AIRFLOW_WWW_USER_ROLE: "Admin"
+    _AIRFLOW_WWW_USER_FIRSTNAME: "${AIRFLOW_WWW_USER_FIRSTNAME:-firstname}"
+    _AIRFLOW_WWW_USER_LASTNAME: "${AIRFLOW_WWW_USER_LASTNAME:-lastname}"
+    _AIRFLOW_WWW_USER_EMAIL: "${AIRFLOW_WWW_USER_EMAIL:-admin@example.com}"
+    AIRFLOW_VAR_TIMESCALE_READONLY_USERNAME: "${TIMESCALE_READONLY_USERNAME:-user}"
+    AIRFLOW_VAR_TIMESCALE_READONLY_PASSWORD: "${TIMESCALE_READONLY_PASSWORD:-password}"
+    AIRFLOW_VAR_TIMESCALE_CONN_ID_ADMIN: "${TIMESCALE_CONN_ID_ADMIN:-timescale_conn_admin}"
+    AIRFLOW_VAR_TIMESCALE_CONN_ID_READONLY: "${TIMESCALE_CONN_ID_READONLY:-timescale_conn_readonly}"
+    AIRFLOW_VAR_ROOT_PROJ_NAME: "${ROOT_PROJ_NAME:-part5}"
+    AIRFLOW_VAR_BINANCE_API_KEY: "${BINANCE_API_KEY}"
+  user: ${AIRFLOW_UID:-50000}
+  depends_on:
+    airflow-postgres:
+      condition: service_healthy
+  volumes:
+    - ${AIRFLOW_PROJ_DIR:-../pipecraft}/logs:/opt/airflow/logs
+
+
+services:
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow-webserver
+    command: webserver
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow-scheduler
+    command: scheduler
+
+  airflow-postgres:
+    container_name: airflow-postgres
+    image: postgres:13
+    environment:
+      POSTGRES_DB: "${AIRFLOW_DATABASE_NAME:-airflow}"
+      POSTGRES_USER: "${AIRFLOW_DATABASE_USERNAME:-admin}"
+      POSTGRES_PASSWORD: "${AIRFLOW_DATABASE_PASSWORD:-password}"
+
+  airflow-init:
+    <<: *airflow-common
+    container_name: airflow-init
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: true
+    restart: no
+
+  timescale:
+    container_name: timescale
+    image:  timescale/timescaledb:latest-pg15
+    environment:
+      POSTGRES_DB: "${TIMESCALE_DATABASE_NAME:-timescale}"
+      POSTGRES_USER: "${TIMESCALE_ADMIN_USERNAME:-admin}"
+      POSTGRES_PASSWORD: "${TIMESCALE_ADMIN_PASSWORD:-password}"
+
+  grafana:
+    container_name: grafana
+    image: ghcr.io/bylethquant/sds-grafana:latest
+    environment:
+      GF_SECURITY_ADMIN_USER: "${GRAFANA_ADMIN_USER:-admin}"
+      GF_SECURITY_ADMIN_PASSWORD: "${GRAFANA_ADMIN_PASSWORD:-password}"
+    depends_on:
+      timescale:
+        condition: service_healthy
+
+networks:
+  default:
+      name: traefik-net
+      external: true

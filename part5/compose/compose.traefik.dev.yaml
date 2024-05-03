@@ -1,0 +1,14 @@
+name: data-infra-traefik-dev
+
+services:
+
+  traefik:
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--log.level=DEBUG"
+    ports:
+      - "80:80"
+      - "${TRAEFIK_PORT:-8080}:8080"  # traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
