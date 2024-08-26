@@ -27,4 +27,4 @@ Follow these steps to set up the application using Docker Compose:
 7. Start the Binance data pipelines.
 8. Access Grafana web interface through a browser at ``localhost:3000``.
 
-A detailed guide can be found here: [SDS #4: Crypto Market Data Dashboard with Grafana](https://hiddenorder.io/p/sds-4-crypto-market-data-dashboard).
+A detailed guide can be found here: SDS #4: Crypto Market Data Dashboard with Grafana.

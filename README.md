@@ -1,18 +1,18 @@
 # A Practical Guide to a Simple Data Stack
 
 This GitHub repository hosts the source code for my infrastructure
-series, [A Practical Guide to a Simple Data Stack](https://hiddenorder.io) (SDS). It expands
-upon the Substack posts and provides a step-by-step guide to building the data infrastructure depicted in the figure
+series, "A Practical Guide to a Simple Data Stack" (SDS). It expands
+upon the [X articles](https://x.com/bylethquant/articles) and provides a step-by-step guide to building the data infrastructure depicted in the figure
 below.
 
 **Articles**
-* [SDS #0: A Practical Guide to a Simple Data Stack](https://hiddenorder.io/p/sds-0-a-practical-guide-to-a-simple)
-* [SDS #1: Docker, Docker Compose and Setting Up Timescale](https://hiddenorder.io/p/sds-1-docker-docker-compose-and-setting)
-* [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://hiddenorder.io/p/sds-2-setting-up-apache-airflow-and)
-* [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://hiddenorder.io/p/sds-3-robust-crypto-data-pipelines)
-* [SDS #4: Crypto Market Data Dashboard with Grafana](https://hiddenorder.io/p/sds-4-crypto-market-data-dashboard)
-* [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-1-how-to-set-up-the-data-stack)
-* [SDS #5-2: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-2-how-to-set-up-the-data-stack)
+* [SDS #0: A Practical Guide to a Simple Data Stack](https://x.com/bylethquant/status/1826891957249212691)
+* SDS #1: Docker, Docker Compose and Setting Up Timescale
+* SDS #2: Setting up Apache Airflow and Creating Pipelines
+* SDS #3: Robust Crypto Data Pipelines with Apache Airflow
+* SDS #4: Crypto Market Data Dashboard with Grafana
+* SDS #5-1: How to Set Up the Data Stack in the Cloud
+* SDS #5-2: How to Set Up the Data Stack in the Cloud
 
 ## Introduction
 
@@ -33,7 +33,7 @@ Let's start with the outcome: In the substack posts, I provided a guide to build
 illustrated in the figure below:
 
 <div align="center">
-    <img src=".github/data-infra.webp" alt="data-infra" width="500" />
+    <img src=".github/x-data-infra.webp" alt="data-infra" width="500" />
 </div>
 
 *Orchestration* is managed using Apache Airflow, which facilitates the implementation and management of data pipelines.
@@ -68,5 +68,3 @@ This series is for those who are looking to take their first steps in developing
 * Grafana 10.0.2
 * Timescale pg15
 * Traefik 3.0
-
-Please subscribe to [hiddenorder.io](https://hiddenorder.io/) and [follow me on X](https://twitter.com/bylethquant) for updates!

@@ -48,5 +48,5 @@ Follow these steps to set up the application using Docker Compose:
 
 A detailed guide can be found
 here:
-* [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-1-how-to-set-up-the-data-stack)
-* [SDS #5-2: How to Set Up the Data Stack in the Cloud](https://hiddenorder.io/p/sds-5-2-how-to-set-up-the-data-stack)
+* SDS #5-1: How to Set Up the Data Stack in the Cloud
+* SDS #5-2: How to Set Up the Data Stack in the Cloud
