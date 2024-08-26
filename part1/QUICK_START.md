@@ -6,4 +6,4 @@ Follow these steps to set up the application using Docker Compose:
 4. Run ``main.py`` to ingest some mock data to Timescale.
 
 A detailed guide can be found here: 
-[SDS #1: Docker, Docker Compose and Setting Up Timescale](https://hiddenorder.io/p/sds-1-docker-docker-compose-and-setting).
+[SDS #1: Docker, Docker Compose and Setting Up Timescale](https://x.com/bylethquant/status/1828041355131859198).

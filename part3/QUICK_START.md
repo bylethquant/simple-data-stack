@@ -10,8 +10,16 @@ Follow these steps to set up the application using Docker Compose:
 6. Start the data infrastructure in detached mode by executing ``docker compose up -d``.
 7. Access Airflow web interface through a browser at ``localhost:8080``. Complete the one-time 
 initialization of Timescale:
+   - Create a connection to Timescale: Admin → Connections
+     * Connection Id: timescale_conn_admin
+     * Connection Type: Postgres
+     * Host: host.docker.internal
+     * Database: timescale
+     * Login: admin
+     * Password: password
+     * Port: 5433
    - Execute the Airflow DAG `0_timescale_create_roles` to create read-only user roles.
    - Execute the Airflow DAG `0_timescale_create_tables` to create hypertables. 
 8. Start the Binance data pipelines.
 
-A detailed guide can be found here: [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://hiddenorder.io/p/sds-3-robust-crypto-data-pipelines).
+A detailed guide can be found here: SDS #3: Robust Crypto Data Pipelines with Apache Airflow.

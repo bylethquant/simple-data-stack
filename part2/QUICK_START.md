@@ -18,4 +18,4 @@ initialization of Timescale:
      * Password: password
      * Port: 5433
 
-A detailed guide can be found here: [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://hiddenorder.io/p/sds-2-setting-up-apache-airflow-and).
+A detailed guide can be found here: SDS #2: Setting up Apache Airflow and Creating Pipelines.
