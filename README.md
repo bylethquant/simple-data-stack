@@ -8,7 +8,7 @@ below.
 **Articles**
 * [SDS #0: A Practical Guide to a Simple Data Stack](https://x.com/bylethquant/status/1826891957249212691)
 * [SDS #1: Docker, Docker Compose and Setting Up Timescale](https://x.com/bylethquant/status/1828041355131859198)
-* SDS #2: Setting up Apache Airflow and Creating Pipelines
+* [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://x.com/bylethquant/status/1830558712899228012)
 * SDS #3: Robust Crypto Data Pipelines with Apache Airflow
 * SDS #4: Crypto Market Data Dashboard with Grafana
 * SDS #5-1: How to Set Up the Data Stack in the Cloud
