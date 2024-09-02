@@ -18,4 +18,4 @@ initialization of Timescale:
      * Password: password
      * Port: 5433
 
-A detailed guide can be found here: SDS #2: Setting up Apache Airflow and Creating Pipelines.
+A detailed guide can be found here: [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://x.com/bylethquant/status/1830558712899228012).
