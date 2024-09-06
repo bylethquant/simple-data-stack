@@ -22,4 +22,4 @@ initialization of Timescale:
    - Execute the Airflow DAG `0_timescale_create_tables` to create hypertables. 
 8. Start the Binance data pipelines.
 
-A detailed guide can be found here: SDS #3: Robust Crypto Data Pipelines with Apache Airflow.
+A detailed guide can be found here: [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://x.com/bylethquant/status/1831899712749699506).
