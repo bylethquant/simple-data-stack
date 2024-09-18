@@ -11,8 +11,8 @@ below.
 * [SDS #2: Setting up Apache Airflow and Creating Pipelines](https://x.com/bylethquant/status/1830558712899228012)
 * [SDS #3: Robust Crypto Data Pipelines with Apache Airflow](https://x.com/bylethquant/status/1831899712749699506)
 * [SDS #4: Crypto Market Data Dashboard with Grafana](https://x.com/bylethquant/status/1833141733305295348)
-* SDS #5-1: How to Set Up the Data Stack in the Cloud
-* SDS #5-2: How to Set Up the Data Stack in the Cloud
+* [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://x.com/bylethquant/status/1835662178571190627)
+* [SDS #5-2: How to Set Up the Data Stack in the Cloud](https://x.com/bylethquant/status/1836390688524767387)
 
 ## Introduction
 

@@ -99,5 +99,5 @@ Follow these steps to set up the application using Docker Compose:
 
 A detailed guide can be found
 here: 
-* SDS #5-1: How to Set Up the Data Stack in the Cloud
-* SDS #5-2: How to Set Up the Data Stack in the Cloud
+* [SDS #5-1: How to Set Up the Data Stack in the Cloud](https://x.com/bylethquant/status/1835662178571190627)
+* [SDS #5-2: How to Set Up the Data Stack in the Cloud](https://x.com/bylethquant/status/1836390688524767387)
